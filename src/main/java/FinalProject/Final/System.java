@@ -48,14 +48,14 @@ public class System {
 	
 	
 	@PutMapping("/patients")
-	public Patient addPatient(@RequestBody Patient pat) {
+	public String addPatient(@RequestBody Patient pat) {
 		
 		Patient patient=nurse.AddPatient(Encounters,Encounters1,
 				stations,routes, patientList,
 				pat.getGovtID(), pat.getFirstName(), pat.getLastName(), pat.getPhoneNumber(),pat.getBirthDate(), pat.getEmail(), 
 				pat.getAddress(),pat.getHouseResidentsAmount(),pat.getInfectedByPatientID(),true,"",handler);
 		
-		return patient;
+		return patient.getGovtID();
 		
 		
 	}
